@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="360" viewBox="0 0 800 360" font-family="Ubuntu, Arial, sans-serif">
+  <rect width="800" height="360" fill="#181a1b"/>
+
+  <!-- light from one point, through a large opening with a lens, back to one point -->
+  <polygon points="70,170 360,96 360,244" fill="#5eedb8" fill-opacity="0.25"/>
+  <polygon points="360,96 700,170 360,244" fill="#5eedb8" fill-opacity="0.35"/>
+  <g stroke="#5eedb8" stroke-width="1.5">
+    <line x1="70" y1="170" x2="360" y2="96"/>
+    <line x1="70" y1="170" x2="360" y2="244"/>
+    <line x1="70" y1="170" x2="700" y2="170"/>
+    <line x1="360" y1="96" x2="700" y2="170"/>
+    <line x1="360" y1="244" x2="700" y2="170"/>
+  </g>
+  <circle cx="70" cy="170" r="6" fill="#ffffff"/>
+
+  <!-- wall with a large opening -->
+  <line x1="360" y1="40" x2="360" y2="86" stroke="#ffffff" stroke-width="6"/>
+  <line x1="360" y1="254" x2="360" y2="300" stroke="#ffffff" stroke-width="6"/>
+  <!-- lens -->
+  <ellipse cx="360" cy="170" rx="16" ry="80" fill="#22b8e8" fill-opacity="0.35" stroke="#ffffff" stroke-width="2"/>
+
+  <!-- sensor / back wall and the sharp point -->
+  <line x1="700" y1="40" x2="700" y2="300" stroke="#cccccc" stroke-width="3"/>
+  <circle cx="700" cy="170" r="7" fill="#5eedb8"/>
+
+  <text x="70" y="30" fill="#cccccc" font-size="15" text-anchor="middle">σημείο</text>
+  <text x="360" y="30" fill="#cccccc" font-size="15" text-anchor="middle">φακός</text>
+  <text x="700" y="30" fill="#cccccc" font-size="15" text-anchor="middle">αισθητήρας</text>
+  <text x="400" y="336" fill="#ffffff" font-size="18" text-anchor="middle">μεγάλο άνοιγμα, αλλά οι ακτίνες ξανασυναντιούνται σε ένα σημείο: φως και καθαρή εικόνα</text>
+</svg>
