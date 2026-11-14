@@ -1,0 +1,532 @@
+---
+# Front matter so Jekyll fills in the accent colours from _config.yml.
+---
+/* Trimmed from the portfolio's mystyle.css (rigascg.com); same look. */
+
+/* :::::::::::::::: variables ::::::::::::::::::: */
+:root {
+  --accent-color-light: {{ site.accent_light }};
+  --accent-color-dark: {{ site.accent_dark }};
+  --bg-color: #181a1b;
+  --bg-color-darker: #101111;
+  --text-color: white;
+  --text-color-low-contrast: #cccccc;
+  --site-max-width-text: 800px;
+  --animations-time: 300ms;
+}
+
+/* :::::::::::::::: fonts (Ubuntu, self-hosted) ::::::::::::::::::: */
+@font-face {
+  font-family: 'Ubuntu'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(fonts/ubuntu-latin-400-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Ubuntu'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(fonts/ubuntu-latin-ext-400-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Ubuntu'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(fonts/ubuntu-greek-400-normal.woff2) format('woff2');
+  unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Ubuntu'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(fonts/ubuntu-greek-ext-400-normal.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+@font-face {
+  font-family: 'Ubuntu'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url(fonts/ubuntu-latin-700-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Ubuntu'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url(fonts/ubuntu-latin-ext-700-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Ubuntu'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url(fonts/ubuntu-greek-700-normal.woff2) format('woff2');
+  unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Ubuntu'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url(fonts/ubuntu-greek-ext-700-normal.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+/* :::::::::::::::: base ::::::::::::::::::: */
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 100;
+  font-size: medium;
+  text-align: justify;
+  letter-spacing: 0.05em;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: left;
+  margin: .5rem;
+}
+
+::selection {
+  background: var(--accent-color-light);
+  color: var(--bg-color);
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  letter-spacing: 3px;
+}
+
+hr {
+  width: 100%;
+}
+
+/* Links that look like buttons */
+.btn {
+  display: inline-block;
+  text-align: center;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+.btn:active,
+button:active {
+  color: var(--text-color-low-contrast);
+}
+
+/* :::::::::::::::: scrolling (SimpleBar) ::::::::::::::::::: */
+.scroller {
+  height: 100vh;
+}
+
+.simplebar-scrollbar::before {
+  background-image: linear-gradient(var(--accent-color-light), var(--accent-color-dark));
+  border-radius: 0%;
+}
+
+.simplebar-scrollbar {
+  margin-right: .1rem;
+}
+
+.simplebar-scrollbar.simplebar-visible:before {
+  opacity: 1;
+}
+
+/* :::::::::::::::: title mark (no top bar) ::::::::::::::::::: */
+.page {
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+.mark {
+  padding-top: .6rem;
+}
+
+.logoall {
+  padding: .65rem 1rem;
+  font-weight: 700;
+}
+
+.logocolor {
+  background-image: linear-gradient(90deg, var(--accent-color-light), var(--accent-color-dark));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.logoall:hover > .logowhite {
+  animation: glitch 800ms infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 0.1em 0 0.001em var(--accent-color-dark), -0.1em 0em 0.001em var(--accent-color-light); }
+  25% { text-shadow: 0em 0.05em 0.001em var(--accent-color-dark), 0em -0.05em 0.001em var(--accent-color-light); }
+  50% { text-shadow: -0.1em 0em 0.001em var(--accent-color-dark), 0.1em 0 0.001em var(--accent-color-light); }
+  75% { text-shadow: 0em -0.05em 0.001em var(--accent-color-dark), 0em 0.05em 0.001em var(--accent-color-light); }
+  100% { text-shadow: 0.1em 0 0.001em var(--accent-color-dark), -0.1em 0em 0.001em var(--accent-color-light); }
+}
+
+/* :::::::::::::::: page transitions ::::::::::::::::::: */
+@view-transition {
+  navigation: auto;
+}
+
+.mark {
+  view-transition-name: site-mark;
+}
+
+::view-transition-old(root) {
+  animation: fadeout var(--animations-time) ease both;
+}
+
+::view-transition-new(root) {
+  animation: fadein var(--animations-time) ease var(--animations-time) both;
+}
+
+/* Fallback for browsers without cross-document view transitions (Firefox) */
+.js-fade main {
+  animation: fadein var(--animations-time);
+}
+
+.js-fading-out main {
+  opacity: 0;
+  transition: opacity var(--animations-time);
+}
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeout {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* :::::::::::::::: layout & text ::::::::::::::::::: */
+.verticalPageFlexbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shortContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  max-width: var(--site-max-width-text);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.25rem;
+}
+
+.margin > * {
+  margin-top: .65rem;
+  margin-bottom: .65rem;
+}
+
+.textbox {
+  font-size: 90%;
+  line-height: 175%;
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0;
+}
+
+/* blocks inside text: no outer margins, one empty line between them */
+.md > * {
+  margin: 0;
+}
+
+.md > * + * {
+  margin-top: 1.75em;
+}
+
+.md strong {
+  font-weight: 700;
+}
+
+.md a {
+  background-image: linear-gradient(to right, var(--accent-color-light), var(--accent-color-dark));
+  background-size: 100% .1em;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+}
+
+.md img {
+  max-width: 100%;
+  height: auto;
+}
+
+.meta {
+  width: 100%;
+  margin: 0;
+  padding: 0 1rem;
+  font-size: 80%;
+  color: var(--text-color-low-contrast);
+  text-align: left;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.strong {
+  font-weight: 700 !important;
+}
+
+.weak {
+  font-weight: normal !important;
+}
+
+.emphasis {
+  background: linear-gradient(-45deg, var(--accent-color-dark), var(--accent-color-light), var(--accent-color-dark), var(--accent-color-light));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  animation-delay: var(--anim-offset, 0s);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.backButton {
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: -1em;
+  margin-right: -1em;
+}
+
+.backButton:hover {
+  background-color: var(--bg-color-darker);
+}
+
+.addBackArrow::before {
+  content: '⮌ ';
+}
+
+/* one button per row (files, back) */
+.stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* :::::::::::::::: grid of generated tiles ::::::::::::::::::: */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: var(--site-max-width-text);
+  padding: 1.25rem;
+}
+
+.tile {
+  position: relative;
+  display: block;
+  width: calc((100% - 1.25rem * 2) / 3);
+  aspect-ratio: 1;
+  overflow: clip;
+}
+
+.tile-art {
+  position: absolute;
+  inset: 0;
+  transition: transform .3s, opacity .3s, filter .3s;
+}
+
+.tile p {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 15%;
+  margin: auto;
+  padding: 0 .75rem;
+  font-weight: 700;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.tile:hover .tile-art,
+.tile:focus-visible .tile-art {
+  transform: scale(1.2);
+}
+
+/* Blog: title only on hover, like the portfolio */
+.tile:hover p,
+.tile:focus-visible p {
+  opacity: 1;
+}
+
+.tile:hover .tile-art,
+.tile:focus-visible .tile-art {
+  opacity: .5;
+}
+
+/* Notes: titles always visible, centred, readable on any colour */
+.grid--labels .tile p {
+  opacity: 1;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+  text-shadow: 0 0 .6em rgba(0, 0, 0, .85), 0 0 .15em rgba(0, 0, 0, .9);
+}
+
+.grid--labels .tile .tile-art {
+  filter: brightness(.8);
+}
+
+.grid--labels .tile:hover .tile-art,
+.grid--labels .tile:focus-visible .tile-art {
+  opacity: 1;
+  filter: brightness(.55);
+}
+
+.group-title {
+  width: 100%;
+  max-width: var(--site-max-width-text);
+  padding: 0 1.25rem;
+  margin: 1rem 0 -.5rem;
+  font-size: 1.1rem;
+}
+
+.empty {
+  color: var(--text-color-low-contrast);
+}
+
+/* :::::::::::::::: view toggle (notes) ::::::::::::::::::: */
+.viewtoggle button {
+  padding: .65rem .25rem;
+}
+
+.viewtoggle .notCurrent:hover {
+  animation: glitch 800ms infinite;
+}
+
+.views,
+.view-type {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+[data-view="date"] > .view-type,
+[data-view="type"] > .view-date {
+  display: none;
+}
+
+/* :::::::::::::::: lightbox (images in posts) ::::::::::::::::::: */
+img[data-lightbox] {
+  cursor: zoom-in;
+}
+
+.lightbox {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  background: rgba(16, 17, 17, .96);
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+.lightbox::backdrop {
+  background: transparent;
+}
+
+.lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadein var(--animations-time);
+}
+
+.lightbox-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: calc(100vw - 8rem);
+}
+
+.lightbox-img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 6rem);
+  object-fit: contain;
+  touch-action: pan-y pinch-zoom;
+}
+
+.lightbox-caption {
+  display: flex;
+  gap: 1.25rem;
+  padding-top: .75rem;
+  font-size: 90%;
+  line-height: 175%;
+  text-align: center;
+}
+
+.lightbox-count {
+  color: var(--text-color-low-contrast);
+  white-space: nowrap;
+}
+
+.lightbox-btn {
+  position: absolute;
+  padding: 1rem 1.25rem;
+  font-size: 2.5rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.lightbox-btn:hover {
+  color: var(--accent-color-light);
+}
+
+.lightbox-prev { left: .5rem; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: .5rem; top: 50%; transform: translateY(-50%); }
+.lightbox-close { top: .25rem; right: .5rem; font-size: 1.5rem; }
+
+.lightbox-single .lightbox-prev,
+.lightbox-single .lightbox-next {
+  display: none;
+}
+
+/* :::::::::::::::: small screens ::::::::::::::::::: */
+@media (max-width: 576px) {
+  .tile {
+    width: calc((100% - 1.25rem) / 2);
+  }
+
+  .lightbox-figure {
+    max-width: calc(100vw - 1rem);
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    display: none;
+  }
+}

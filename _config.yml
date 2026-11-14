@@ -1,0 +1,33 @@
+title: notes
+url: https://notes.rigascg.com
+
+# Colours: the scrollbar / title gradient goes from light to dark accent.
+accent_light: "#5eedb8"
+accent_dark: "#22b8e8"
+# Generated tile art: colours are picked around this hue (degrees), +/- spread.
+palette:
+  hue: 172
+  spread: 24
+collections:
+  notes:
+    output: true
+    permalink: /:name/
+
+defaults:
+  - scope: { type: notes }
+    values: { layout: note }
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: true # a single line break in the CMS text becomes a line break on the page
+  # keep quotes, dashes and dots exactly as typed
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+  typographic_symbols: { hellip: "...", mdash: "---", ndash: "--", laquo: "<<", raquo: ">>", laquo_space: "<< ", raquo_space: " >>" }
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CLAUDE.md
+  - vendor

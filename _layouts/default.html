@@ -1,0 +1,66 @@
+{%- assign s = site.data.settings -%}
+<!DOCTYPE html>
+<html lang="{{ s.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Not listed in search engines: the site is only for people given the address. -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>rigas {{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
+  <link rel="preload" href="{{ '/assets/fonts/ubuntu-latin-400-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/ubuntu-latin-700-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  {%- if s.lang == "el" %}
+  <link rel="preload" href="{{ '/assets/fonts/ubuntu-greek-400-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/ubuntu-greek-700-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  {%- endif %}
+  <link rel="stylesheet" href="{{ '/assets/vendor/simplebar/simplebar.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cdefs%3E%3ClinearGradient id='g' x2='1' y2='1'%3E%3Cstop stop-color='{{ site.accent_light | replace: '#', '%23' }}'/%3E%3Cstop offset='1' stop-color='{{ site.accent_dark | replace: '#', '%23' }}'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='16' height='16' rx='2' fill='url(%23g)'/%3E%3C/svg%3E">
+  <script>
+    // Keeps the looping gradient animations continuous across page loads.
+    document.documentElement.style.setProperty('--anim-offset', -(Date.now() % 15000) + 'ms');
+    // Browsers without cross-document view transitions (e.g. Firefox) fade
+    // pages with a script instead (see style.css and assets/js/site.js).
+    if (!('PageRevealEvent' in window)) document.documentElement.classList.add('js-fade');
+  </script>
+</head>
+
+<body>
+  {%- comment -%}
+    SimpleBar's own wrapper structure, written out in advance (same as the
+    portfolio): SimpleBar only attaches to it, so nothing jumps on load.
+  {%- endcomment %}
+  <div class="scroller" data-simplebar>
+    <div class="simplebar-wrapper">
+      <div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div>
+      <div class="simplebar-mask">
+        <div class="simplebar-offset">
+          <div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content">
+            <div class="simplebar-content">
+
+    <div class="page">
+      <div class="mark">
+        <a class="btn logoall" href="{{ '/' | relative_url }}" title="{{ s.heading }}"><span class="logowhite weak">rigas</span><span class="logocolor">{{ site.title }}</span></a>
+      </div>
+      <main id="content" class="verticalPageFlexbox">
+{{ content }}
+      </main>
+    </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="simplebar-placeholder"></div>
+    </div>
+    <div class="simplebar-track simplebar-horizontal"><div class="simplebar-scrollbar"></div></div>
+    <div class="simplebar-track simplebar-vertical"><div class="simplebar-scrollbar"></div></div>
+  </div>
+
+  <script src="{{ '/assets/vendor/simplebar/simplebar.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+  {%- if page.collection %}
+  <script src="{{ '/assets/js/lightbox.js' | relative_url }}"></script>
+  {%- endif %}
+</body>
+</html>

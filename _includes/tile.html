@@ -1,0 +1,2 @@
+{%- comment -%} One square tile: generated art + title. include.item = a note or post. {%- endcomment -%}
+<a class="btn tile" href="{{ include.item.url | relative_url }}"><span class="tile-art" style="{{ include.item.url | tile_art: site.palette }}"></span><p>{{ include.item.title | escape }}</p></a>

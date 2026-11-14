@@ -1,0 +1,73 @@
+# Sveltia CMS configuration: https://sveltiacms.app/en/docs
+# Open https://notes.rigascg.com/admin/ and use "Sign In Using Access Token".
+# Every save is a commit to `main`; GitHub Actions rebuilds the site in ~1 minute.
+
+backend:
+  name: github
+  repo: ksepastremenos/notes
+  branch: main
+
+site_url: https://notes.rigascg.com
+display_url: https://notes.rigascg.com
+
+media_folder: images
+public_folder: /images
+
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+      max_file_size: 50000000
+      # JPEG/PNG images are converted to WebP (max 2560px) before upload.
+      # Animated GIF/WebP/PNG and other files (PDFs...) are left untouched.
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2560
+          height: 2560
+
+editor:
+  preview: false
+
+collections:
+  - name: notes
+    label: Notes
+    label_singular: Note
+    folder: _notes
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    summary: "{{date}} · {{type}} · {{title}}"
+    sortable_fields: [date, title, type]
+    preview_path: "{{slug}}/"
+    fields:
+      - { name: title, label: Title, widget: string, hint: "Also used for the page address when creating a note." }
+      - { name: date, label: Date, widget: datetime, type: date }
+      - { name: type, label: Type, widget: string, required: false, hint: "A keyword for grouping, e.g. bibliography, lecture. Notes with the same keyword share a grid in the 'by type' view." }
+      - { name: body, label: Text, widget: markdown, required: false }
+      - name: files
+        label: Files
+        label_singular: File
+        widget: list
+        required: false
+        summary: "{{fields.label}} {{fields.file}}"
+        fields:
+          - { name: file, label: File, widget: file, media_folder: /files, public_folder: /files }
+          - { name: label, label: Button text, widget: string, required: false, hint: "Empty = the file name." }
+
+  - name: settings
+    label: Settings
+    files:
+      - name: settings
+        label: Interface text
+        file: _data/settings.yml
+        fields:
+          - { name: lang, label: Page language code, widget: string, default: en, hint: "en or el (helps browsers and screen readers)" }
+          - { name: heading, label: Heading, widget: string }
+          - { name: by_date, label: Toggle - by date, widget: string }
+          - { name: by_type, label: Toggle - by type, widget: string }
+          - { name: no_type, label: Group name for notes without a type, widget: string }
+          - { name: back, label: Back button, widget: string }
+          - { name: empty, label: Text when there are no notes, widget: string }

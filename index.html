@@ -1,0 +1,65 @@
+---
+layout: default
+---
+{%- assign s = site.data.settings -%}
+{%- assign notes = site.notes | sort: "date" | reverse -%}
+<div class="shortContainer"><h1>{{ s.heading }}</h1></div>
+
+{%- if notes.size == 0 %}
+<p class="empty">{{ s.empty }}</p>
+{%- else %}
+{%- comment -%}
+  Both views are built here; the toggle only shows one or the other (and
+  without JavaScript the page simply shows "by date").
+{%- endcomment %}
+<div class="viewtoggle">
+  <button type="button" data-view="date" class="current emphasis strong">{{ s.by_date }}</button><span class="strong"> · </span><button type="button" data-view="type" class="notCurrent weak">{{ s.by_type }}</button>
+</div>
+
+<div class="views" data-view="date">
+  <div class="view-date grid grid--labels">
+    {%- for n in notes %}
+    {% include tile.html item=n %}
+    {%- endfor %}
+  </div>
+
+  <div class="view-type">
+    {%- assign groups = notes | group_by_exp: "n", "n.type | downcase | strip" | sort: "name" -%}
+    {%- assign untyped = groups | where: "name", "" -%}
+    {%- assign typed = groups | where_exp: "g", "g.name != ''" -%}
+    {%- assign groups = typed | concat: untyped -%}
+    {%- for g in groups %}
+    <h2 class="group-title">{% if g.name == "" %}{{ s.no_type }}{% else %}{{ g.items.first.type | strip }}{% endif %}</h2>
+    <div class="grid grid--labels">
+      {%- for n in g.items %}
+      {% include tile.html item=n %}
+      {%- endfor %}
+    </div>
+    {%- endfor %}
+  </div>
+</div>
+
+<script>
+  // Placed right after the views so a remembered choice applies before the
+  // page is first drawn (no flash of the other view).
+  (function () {
+    const views = document.querySelector('.views');
+    const buttons = document.querySelectorAll('.viewtoggle button');
+    function show(view) {
+      views.dataset.view = view;
+      buttons.forEach((b) => {
+        const on = b.dataset.view === view;
+        b.className = on ? 'current emphasis strong' : 'notCurrent weak';
+        b.setAttribute('aria-pressed', on);
+      });
+    }
+    let saved = null;
+    try { saved = localStorage.getItem('notes-view'); } catch (e) {}
+    if (saved === 'type' || saved === 'date') show(saved);
+    buttons.forEach((b) => b.addEventListener('click', () => {
+      show(b.dataset.view);
+      try { localStorage.setItem('notes-view', b.dataset.view); } catch (e) {}
+    }));
+  })();
+</script>
+{%- endif %}
