@@ -10,6 +10,10 @@ layout: default
 <div class="shortContainer margin">
   <p class="meta">{{ page.date | date: "%d.%m.%Y" }}{% if page.type and page.type != "" %} · {{ page.type }}{% endif %}</p>
 
+  {%- if page.video and page.video != "" %}
+  {% include video.html url=page.video title=page.title %}
+  {%- endif %}
+
   <div class="textbox md">{{ content }}</div>
 
   {%- if page.files and page.files.size > 0 %}

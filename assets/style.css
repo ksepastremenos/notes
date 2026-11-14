@@ -256,6 +256,51 @@ button:active {
   font-weight: 700;
 }
 
+.md h2,
+.md h3 {
+  margin-left: 0;
+  margin-right: 0;
+  line-height: 140%;
+}
+
+.md h3 {
+  font-size: 1.05rem;
+}
+
+.md > * + h2,
+.md > * + h3 {
+  margin-top: 3.5em;
+}
+
+.md > h2 + *,
+.md > h3 + * {
+  margin-top: .75em;
+}
+
+.md ul,
+.md ol {
+  padding-left: 1.25rem;
+  text-align: left;
+}
+
+/* label line directly followed by its list ("Χαρακτηριστικά έργα:") */
+.md > p + ul,
+.md > p + ol {
+  margin-top: .25em;
+}
+
+/* YouTube / Vimeo embed (the "Video" field) */
+.video {
+  width: calc(100% - 2rem); /* same width as the text column */
+  aspect-ratio: 16 / 9;
+}
+
+.video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .md a {
   background-image: linear-gradient(to right, var(--accent-color-light), var(--accent-color-dark));
   background-size: 100% .1em;

@@ -46,6 +46,7 @@ collections:
       - { name: title, label: Title, widget: string, hint: "Also used for the page address when creating a note." }
       - { name: date, label: Date, widget: datetime, type: date }
       - { name: type, label: Type, widget: string, required: false, hint: "A keyword for grouping, e.g. bibliography, lecture. Notes with the same keyword share a grid in the 'by type' view." }
+      - { name: video, label: Video, widget: string, required: false, hint: "A YouTube or Vimeo link; shown above the text." }
       - { name: body, label: Text, widget: markdown, required: false }
       - name: files
         label: Files
