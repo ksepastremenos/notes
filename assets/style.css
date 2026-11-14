@@ -289,6 +289,38 @@ button:active {
   margin-top: .25em;
 }
 
+/* tables in text: scroll sideways on narrow screens instead of squashing */
+.md table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 150%;
+}
+
+.md th,
+.md td {
+  padding: .6em .75em;
+  vertical-align: top;
+  border-bottom: 1px solid #373d41;
+  min-width: 8em;
+}
+
+.md th {
+  font-weight: 700;
+  border-bottom: .15em solid var(--accent-color-light);
+}
+
+.md td:first-child {
+  font-weight: 700;
+  min-width: 6em;
+}
+
+.md tbody tr:hover {
+  background-color: var(--bg-color-darker);
+}
+
 /* YouTube / Vimeo embed (the "Video" field) */
 .video {
   width: calc(100% - 2rem); /* same width as the text column */
