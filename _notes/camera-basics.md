@@ -11,8 +11,6 @@ type: Θεωρία
 
 Γιατί ανάποδα; Το φως ταξιδεύει σε ευθείες: ό,τι είναι ψηλά περνά από την τρύπα και καταλήγει χαμηλά, και το αντίστροφο.
 
-![Πώς σχηματίζεται η ανάποδη εικόνα σε μια camera obscura](/images/camera-basics/02-pinhole.webp)
-
 #### Μικρή ή μεγάλη τρύπα;
 
 - **Μικρή τρύπα:** κάθε σημείο γίνεται μια μικρή κουκκίδα. Η εικόνα είναι καθαρή αλλά σκοτεινή.
@@ -38,8 +36,6 @@ type: Θεωρία
 
 ![Αισθητήρες μεγάλης και μικρής κάμερας](/images/camera-basics/06-sensor.webp)
 
-![Το πλέγμα χρωματικών φίλτρων, από την πατέντα του Bryce Bayer (1976)](/images/camera-basics/07-bayer.webp)
-
 #### Διάφραγμα, ταχύτητα κλείστρου, ISO
 
 Τρεις ρυθμίσεις αποφασίζουν πόσο φωτεινή θα είναι η φωτογραφία. Η καθεμία έχει και μια «παρενέργεια»:
@@ -61,10 +57,8 @@ type: Θεωρία
 Από το Wikimedia Commons. Τα δύο διαγράμματα (τρύπα, φακός) είναι δικά μας. Οι συγκρίσεις ταχύτητας κλείστρου και ISO είναι δύο εικόνες δίπλα-δίπλα με ετικέτες.
 
 - [Camera Obscura box18thCentury](https://commons.wikimedia.org/wiki/File:Camera_Obscura_box18thCentury.jpg), κοινό κτήμα
-- [Pinhole Camera Diagram](https://commons.wikimedia.org/wiki/File:Pinhole_Camera_Diagram.png) — Finitehoax, [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en)
 - [Focal-plane shutter](https://commons.wikimedia.org/wiki/File:Focal-plane_shutter.jpg) — Hustvedt, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
 - [CMOS Image Sensor Big and Small](https://commons.wikimedia.org/wiki/File:CMOS_Image_Sensor_Big_and_Small.jpg) — 根川孝太郎 (Kotaro Negawa), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
-- [US03971065 Bayer Front](https://commons.wikimedia.org/wiki/File:US03971065_Bayer_Front.png), κοινό κτήμα
 - [Depth-of-field-comparison-side-by-side-small](https://commons.wikimedia.org/wiki/File:Depth-of-field-comparison-side-by-side-small.png) — MikeRun, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
 - [Image noise in low light sample (Canon 100D) at ISO 100 (detail)](https://commons.wikimedia.org/wiki/File:Image_noise_in_low_light_sample_(Canon_100D)_at_ISO_100_(detail).jpg) — Rodrigo.Argenton, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
 - [Image noise in low light sample (Canon 100D) at ISO 6400 (detail)](https://commons.wikimedia.org/wiki/File:Image_noise_in_low_light_sample_(Canon_100D)_at_ISO_6400_(detail).jpg) — Rodrigo.Argenton, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
