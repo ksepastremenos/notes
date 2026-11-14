@@ -17,6 +17,10 @@ defaults:
   - scope: { type: notes }
     values: { layout: note }
 
+# Publish entries even if their date is "in the future" for the build server
+# (it runs on UTC, so evening posts in Greece would otherwise be skipped).
+future: true
+
 markdown: kramdown
 kramdown:
   input: GFM
